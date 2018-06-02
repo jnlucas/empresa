@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">empresa</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="jogar">Jogar</string>
-    <string name="sobre">Sobre</string>
+    <string name="score">Score</string>
+    <string name="atividades">Atividades</string>
     <string name="sair">Sair</string>
 
     <!-- TODO: Remove or change this placeholder text -->

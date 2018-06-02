@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_jogar"
+        android:id="@+id/navigation_score"
         android:icon="@drawable/ic_action_score"
-        android:title="@string/jogar" />
+        android:title="@string/score" />
 
     <item
-        android:id="@+id/navigation_sobre"
+        android:id="@+id/navigation_atividades"
         android:icon="@drawable/ic_action_atividades"
-        android:title="@string/sobre" />
+        android:title="@string/atividades" />
 
     <item
         android:id="@+id/navigation_sair"

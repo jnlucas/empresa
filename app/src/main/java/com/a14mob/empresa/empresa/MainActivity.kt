@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_jogar -> {
+            R.id.navigation_score -> {
 
                 this.changeFragment(ScoreFragment());
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_sobre -> {
+            R.id.navigation_atividades -> {
 
                 this.changeFragment(AvaliacoesFragment());
 
