@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_jogar"
+        android:icon="@drawable/ic_action_score"
+        android:title="@string/jogar" />
+
+    <item
+        android:id="@+id/navigation_sobre"
+        android:icon="@drawable/ic_action_atividades"
+        android:title="@string/sobre" />
+
+    <item
+        android:id="@+id/navigation_sair"
+        android:icon="@drawable/ic_action_sair"
+        android:title="@string/sair" />
+
+</menu>
