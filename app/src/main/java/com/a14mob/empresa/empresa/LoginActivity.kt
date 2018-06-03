@@ -64,19 +64,16 @@ class LoginActivity : AppCompatActivity() {
 
         var  liberado: Int = verificaProfissional();
 
-        if(liberado == 1){
-            //carregarInformacoes()
 
-        }else{
-            msgErro.text = "Profissional nao encontrado!"
-        }
 
     }
 
-    fun carregarInformacoes(){
+    fun carregarInformacoes(response: Profissional){
 
         val intent = Intent(this,MainActivity::class.java)
-        //intent.putExtra("PONTUACAO",tvPontuacao.text.toString());
+        intent.putExtra("cpf",fieldCpf.toString());
+
+
         startActivity(intent)
     }
 
@@ -87,21 +84,23 @@ class LoginActivity : AppCompatActivity() {
 
         Log.i("CPF",fieldCpf)
 
-        api.buscarProfissional("36131357870")
+        api.buscarProfissional(fieldCpf)
                 .enqueue(object : Callback<Profissional> {
                     override fun onResponse(call: Call<Profissional>?, response: Response<Profissional>?) {
 
-                        response?.body()?.nome
 
-                        Toast.makeText(this@LoginActivity,response?.body()?.nome,Toast.LENGTH_LONG).show()
-                        Log.i("FU",response?.body()?.nome)
+                        if(response?.body()?.nome != null){
+                            this@LoginActivity.carregarInformacoes(response?.body() as Profissional)
+
+                        }else{
+                            msgErro.text = "Profissional nao encontrado!"
+                        }
+
                     }
 
                     override fun onFailure(call: Call<Profissional>?, t: Throwable?) {
 
-                        Log.i("NAOFU",t.toString())
-                        msgErro.text = t.toString()
-                        Toast.makeText(this@LoginActivity,t.toString(),Toast.LENGTH_LONG).show()
+                        msgErro.text = "Profissional nao encontrado!"
                     }
                 })
 
