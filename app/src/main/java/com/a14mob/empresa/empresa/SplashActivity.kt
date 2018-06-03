@@ -45,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
                 this.carregar(this.vezes);
             }else{
 
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                val intent = Intent(this@SplashActivity, LoginActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 this@SplashActivity.finish()
