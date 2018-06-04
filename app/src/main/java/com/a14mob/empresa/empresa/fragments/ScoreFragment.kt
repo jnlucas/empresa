@@ -18,8 +18,10 @@ import com.a14mob.empresa.empresa.R
 import com.a14mob.empresa.empresa.entity.Profissional
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.widget.TextView
+import com.a14mob.empresa.empresa.adapter.ScoreAdapter
 import com.a14mob.empresa.empresa.entity.Avaliacao
 import com.a14mob.empresa.empresa.entity.Score
 import com.a14mob.empresa.empresa.retrofit.RetroFitRestAPI
@@ -96,7 +98,7 @@ class ScoreFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 
-        teste.text = "foiiiii"
+
 
         score(profissionalId.toInt(), meta.toInt())
 
@@ -105,8 +107,17 @@ class ScoreFragment : Fragment() {
 
     fun carregarInformacoes(scores: List<Score>){
 
-        Toast.makeText(activity, "Funcionou", Toast.LENGTH_LONG).show()
-        teste.text = "foiiiii"
+
+
+
+
+        val recyclerView = score_list_recyclerview
+
+        recyclerView.adapter = ScoreAdapter(scores, this@ScoreFragment.context!!)
+
+        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
+
 
     }
 
@@ -120,7 +131,7 @@ class ScoreFragment : Fragment() {
 
                         this@ScoreFragment.carregarInformacoes(response?.body() as List<Score>)
 
-                        this@ScoreFragment.teste.text = "Funcionando"
+
 
                     }
 
@@ -128,7 +139,7 @@ class ScoreFragment : Fragment() {
 
 
                         Log.i("ERROR>>>>>>>",t.toString())
-                        this@ScoreFragment.teste.text = t.toString()
+
 
                     }
                 })
