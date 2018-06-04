@@ -18,6 +18,9 @@ import com.google.gson.GsonBuilder
 import com.google.gson.Gson
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
+import android.content.SharedPreferences
+
+
 
 
 
@@ -73,6 +76,15 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this,MainActivity::class.java)
         intent.putExtra("cpf",fieldCpf.toString());
 
+        val editor = getSharedPreferences("PROFISSIONAL", MODE_PRIVATE).edit()
+        editor.putString("nome", response.nome)
+        editor.putString("meta", response.meta)
+        editor.putString("profissionalId", response.id.toString())
+
+        editor.putString("cpf",fieldCpf)
+
+        editor.apply()
+
 
         startActivity(intent)
     }
@@ -80,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
     fun verificaProfissional(): Int {
 
         Toast.makeText(this@LoginActivity,"iniciando",Toast.LENGTH_LONG).show()
-        fieldCpf = cpf.text.toString()
+        fieldCpf = "36131357870"//cpf.text.toString()
 
         Log.i("CPF",fieldCpf)
 
