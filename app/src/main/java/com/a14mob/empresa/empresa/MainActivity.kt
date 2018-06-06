@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import com.a14mob.empresa.empresa.fragments.AvaliacoesFragment
+import com.a14mob.empresa.empresa.fragments.MapaFragment
 import com.a14mob.empresa.empresa.fragments.ScoreFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -25,6 +26,12 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_atividades -> {
 
                 this.changeFragment(AvaliacoesFragment());
+
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_mapa -> {
+
+                this.changeFragment(MapaFragment());
 
                 return@OnNavigationItemSelectedListener true
             }
