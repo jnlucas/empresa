@@ -80,6 +80,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("nome", response.nome)
         editor.putString("meta", response.meta)
         editor.putString("profissionalId", response.id.toString())
+        editor.putString("foto", response.foto.toString())
 
         editor.putString("cpf",fieldCpf)
 

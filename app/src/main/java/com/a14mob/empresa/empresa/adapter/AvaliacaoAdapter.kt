@@ -21,8 +21,10 @@ class AvaliacaoAdapter(private val avaliacoes: List<Avaliacao>, private val cont
         val avaliacao = avaliacoes[position]
 
         holder?.let {
-            it.nomeAvaliador.text = avaliacao.superiorImediato
+            it.nomeAvaliador.text = "Avaliador: " + avaliacao.superiorImediato
             it.observacao.text = avaliacao.observacao.toString()
+            it.pontuacao.text = avaliacao.pontos.toString()
+
         }
     }
 
@@ -46,13 +48,20 @@ class AvaliacaoAdapter(private val avaliacoes: List<Avaliacao>, private val cont
 
         val nomeAvaliador = itemView.nomeAvaliador
         val observacao = itemView.observacao
+        val pontuacao = itemView.pontuacao
+        val ratingBar = itemView.ratingBar
 
         fun bindView(avaliacao: Avaliacao) {
             val nomeAvaliador = itemView.nomeAvaliador
             val observacao = itemView.observacao
+            val pontuacao = itemView.pontuacao
+            val ratingBar = itemView.ratingBar
+
 
             nomeAvaliador.text = avaliacao.superiorImediato.toString()
             observacao.text = avaliacao.observacao.toString()
+            pontuacao.text = avaliacao.pontos.toString()
+            ratingBar.rating = avaliacao.pontos.toFloat()
         }
 
     }

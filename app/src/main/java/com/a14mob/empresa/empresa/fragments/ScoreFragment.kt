@@ -99,6 +99,7 @@ class ScoreFragment : Fragment() {
 
 
 
+        metaPontos.text = "Ranking da equipe "
 
         score(profissionalId.toInt(), meta.toInt())
 

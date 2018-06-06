@@ -19,8 +19,10 @@ import com.a14mob.empresa.empresa.entity.Score
 import com.a14mob.empresa.empresa.retrofit.RetroFitRestAPI
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
+import com.hendraanggrian.pikasso.picasso
 import kotlinx.android.synthetic.main.fragment_avaliacoes.*
 import kotlinx.android.synthetic.main.fragment_score.*
+import kotlinx.android.synthetic.main.score_item.view.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -57,6 +59,7 @@ class AvaliacoesFragment : Fragment() {
     var profissionalId: Int = 0
 
     var meta: Int = 0
+    var foto: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -70,6 +73,10 @@ class AvaliacoesFragment : Fragment() {
 
         nome = prefs.getString("nome", null).toString()
 
+        foto = prefs.getString("foto", null).toString()
+
+
+
 
         return inflater?.inflate(R.layout.fragment_avaliacoes, container, false)
     }
@@ -80,10 +87,14 @@ class AvaliacoesFragment : Fragment() {
 
 
 
+        pontosProfissional.text = nome.toString()
+
+        picasso.load(foto.toString()).into(imgProfissional)
 
         score(profissionalId.toInt(), meta.toInt())
-
         Toast.makeText(activity, nome, Toast.LENGTH_LONG).show()
+
+
     }
 
     fun carregarInformacoes(avaliacoes: List<Avaliacao>){
