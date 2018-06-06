@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.support.v7.widget.Toolbar
+import android.view.Menu
 import com.a14mob.empresa.empresa.fragments.AvaliacoesFragment
 import com.a14mob.empresa.empresa.fragments.ScoreFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         setContentView(R.layout.activity_main)
         this.changeFragment(ScoreFragment());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -58,4 +61,9 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frame, fragment)
                 .commit()
     }
+
+
+
+
+
 }
