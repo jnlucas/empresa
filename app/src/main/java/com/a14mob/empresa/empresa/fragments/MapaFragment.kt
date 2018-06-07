@@ -4,6 +4,7 @@ package com.a14mob.empresa.empresa.fragments
 
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.Intent.getIntent
 import android.content.Intent.getIntentOld
@@ -17,6 +18,7 @@ import android.widget.Toast
 import com.a14mob.empresa.empresa.R
 
 import android.content.Context.MODE_PRIVATE
+import android.util.Log
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 
@@ -36,11 +38,14 @@ class MapaFragment : Fragment() , OnMapReadyCallback, GoogleApiClient.Connection
     private lateinit var mMap: GoogleMap
     var mGoogleApiClient: GoogleApiClient? = null
 
+
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap?) {
 
         MapsInitializer.initialize(activity!!.applicationContext)
         mMap = googleMap!!
         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+        mMap.isMyLocationEnabled = true
 
     }
 
@@ -49,20 +54,16 @@ class MapaFragment : Fragment() , OnMapReadyCallback, GoogleApiClient.Connection
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
-
         val prefs = inflater.context.getSharedPreferences("PROFISSIONAL", MODE_PRIVATE)
-
-
         var rootView = inflater?.inflate(R.layout.fragment_mapa, container, false)
-
-
-
         return rootView
-
-
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        mGoogleApiClient?.connect()
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -78,16 +79,29 @@ class MapaFragment : Fragment() , OnMapReadyCallback, GoogleApiClient.Connection
 
     }
 
+    @SuppressLint("MissingPermission")
     override fun onConnected(p0: Bundle?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val l = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient)
+
+        if (mMap != null && l != null) {
+            mMap.addMarker(MarkerOptions().position(LatLng(l.latitude, l.longitude)).title("abobrinha").snippet("sdsdsdsds"))
+
+            var posicao = LatLng(l.latitude, l.longitude)
+            val updateCam = CameraUpdateFactory.newLatLngZoom(posicao, 15f)
+            mMap?.animateCamera(updateCam)
+        }
+
+
+
     }
 
     override fun onConnectionSuspended(p0: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.i("suspenso>>>>>","sdsdsdsdsds")
     }
 
     override fun onConnectionFailed(p0: ConnectionResult) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.i("falhou>>>>>","sdsdsdsdsds")
     }
 
 }// Required empty public constructor

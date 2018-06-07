@@ -1,5 +1,7 @@
 package com.a14mob.empresa.empresa
 
+import android.content.Context
+import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
 
 import android.os.Bundle
@@ -46,17 +48,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
 
 
         setContentView(R.layout.activity_main)
         this.changeFragment(ScoreFragment());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
+        val service = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val enable = service.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+        PermissionUtils.validate(this@MainActivity,1,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION , android.Manifest.permission.ACCESS_FINE_LOCATION)
+
     }
 
 

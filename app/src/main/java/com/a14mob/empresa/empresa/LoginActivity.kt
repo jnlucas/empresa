@@ -19,11 +19,7 @@ import com.google.gson.Gson
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import android.content.SharedPreferences
-
-
-
-
-
+import java.util.jar.Manifest
 
 
 class LoginActivity : AppCompatActivity() {
@@ -61,13 +57,14 @@ class LoginActivity : AppCompatActivity() {
 
             verificarLogin();
         }
+
+
+
     }
 
     fun verificarLogin(){
 
         var  liberado: Int = verificaProfissional();
-
-
 
     }
 
