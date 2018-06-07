@@ -89,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun verificaProfissional(): Int {
 
-        Toast.makeText(this@LoginActivity,"iniciando",Toast.LENGTH_LONG).show()
+
         fieldCpf = "36131357870"//cpf.text.toString()
 
         Log.i("CPF",fieldCpf)

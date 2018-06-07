@@ -92,7 +92,7 @@ class AvaliacoesFragment : Fragment() {
         picasso.load(foto.toString()).into(imgProfissional)
 
         score(profissionalId.toInt(), meta.toInt())
-        Toast.makeText(activity, nome, Toast.LENGTH_LONG).show()
+
 
 
     }

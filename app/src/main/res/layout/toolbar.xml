@@ -5,6 +5,12 @@
     android:background="@color/colorPrimaryDark" android:elevation="16dp">
 
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Avalie-me"
+        android:textColor="@android:color/background_light"
+        android:textSize="25dp" />
 
 </android.support.v7.widget.Toolbar>

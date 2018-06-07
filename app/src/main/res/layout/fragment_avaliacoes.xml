@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorBackgroundFloating"
+    android:background="?attr/colorPrimary"
     tools:context=".fragments.AvaliacoesFragment"
     tools:layout_editor_absoluteY="25dp">
 
@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/imgProfissional"
-        android:layout_width="208dp"
-        android:layout_height="158dp"
+        android:layout_width="180dp"
+        android:layout_height="130dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="20dp"
         android:maxHeight="200dp"
@@ -28,11 +28,15 @@
 
     <TextView
         android:id="@+id/pontosProfissional"
+        style="@style/Widget.AppCompat.TextView.SpinnerItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="TextView"
+        android:textColor="?attr/colorBackgroundFloating"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/avaliacoes_list_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
+        android:background="?attr/colorBackgroundFloating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

@@ -103,7 +103,7 @@ class ScoreFragment : Fragment() {
 
         score(profissionalId.toInt(), meta.toInt())
 
-        Toast.makeText(activity, nome, Toast.LENGTH_LONG).show()
+
     }
 
     fun carregarInformacoes(scores: List<Score>){

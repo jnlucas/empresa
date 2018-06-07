@@ -24,12 +24,15 @@ class ScoreAdapter(private val scores: List<Score>, private val context: Context
         holder?.let {
             it.profissional.text = score.profissional
             it.pontos.text = score.meta.toString()+"/"+score.pontos.toString()
+            it.posicao.text = (position + 1).toString()
 
 
         }
 
 
+
         picasso.load(score.foto.toString()).into(holder.itemView.foto)
+
 
 
 
@@ -56,6 +59,7 @@ class ScoreAdapter(private val scores: List<Score>, private val context: Context
         val profissional = itemView.nome_prof
         val pontos = itemView.pontos
         val imagem = itemView.foto
+        val posicao = itemView.posicao
 
 
 
@@ -66,6 +70,7 @@ class ScoreAdapter(private val scores: List<Score>, private val context: Context
             val profissional = itemView.nome_prof
             val pontos = itemView.pontos
             val imagem = itemView.foto
+            val posicao = itemView.posicao
 
             pontos.text = score.profissional
             pontos.text = score.pontos.toString()

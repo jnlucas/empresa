@@ -19,7 +19,6 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:maxHeight="80dp"
             android:maxWidth="80dp"
@@ -39,10 +38,26 @@
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:textColor="?attr/actionModeSplitBackground"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/pontos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/foto"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Titulo" />
+
+        <TextView
+            android:id="@+id/posicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="5dp"
+            android:textSize="12dp"
+            app:barrierAllowsGoneWidgets="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Titulo" />
 
