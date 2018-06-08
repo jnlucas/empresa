@@ -105,8 +105,9 @@ class AvaliacoesFragment : Fragment() {
         PermissionUtils.api.scoreProfissionalAvaliacao(profissionalId,meta)
                 .enqueue(object : Callback<List<Avaliacao>> {
                     override fun onResponse(call: Call<List<Avaliacao>>?, response: Response<List<Avaliacao>>?) {
-
-                        this@AvaliacoesFragment.carregarInformacoes(response?.body() as List<Avaliacao>)
+                        if (this@AvaliacoesFragment.isVisible == true){
+                            this@AvaliacoesFragment.carregarInformacoes(response?.body() as List<Avaliacao>)
+                        }
 
                     }
 

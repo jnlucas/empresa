@@ -115,7 +115,9 @@ class ScoreFragment : Fragment() {
                 .enqueue(object : Callback<List<Score>> {
                     override fun onResponse(call: Call<List<Score>>?, response: Response<List<Score>>?) {
 
-                        this@ScoreFragment.carregarInformacoes(response?.body() as List<Score>)
+                        if(this@ScoreFragment.isVisible == true){
+                            this@ScoreFragment.carregarInformacoes(response?.body() as List<Score>)
+                        }
 
                     }
 

@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
         ivLogo!!.startAnimation(animacao);
 
 
-        
+
         Handler().postDelayed({
 
             if(vezes < SPLASH_DISPLAY_QTD){
