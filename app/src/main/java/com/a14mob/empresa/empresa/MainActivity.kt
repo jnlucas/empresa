@@ -9,13 +9,25 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import com.a14mob.empresa.empresa.entity.Profissional
 import com.a14mob.empresa.empresa.fragments.AvaliacoesFragment
 import com.a14mob.empresa.empresa.fragments.MapaFragment
 import com.a14mob.empresa.empresa.fragments.ScoreFragment
+import com.a14mob.empresa.empresa.retrofit.RetroFitRestAPI
+import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.google.gson.GsonBuilder
+import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
+
 
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -65,6 +77,8 @@ class MainActivity : AppCompatActivity() {
         PermissionUtils.validate(this@MainActivity,1,
                 android.Manifest.permission.ACCESS_COARSE_LOCATION , android.Manifest.permission.ACCESS_FINE_LOCATION)
 
+
+
     }
 
 
@@ -72,6 +86,7 @@ class MainActivity : AppCompatActivity() {
      * altera o fragment
      */
     fun changeFragment ( fragment: Fragment){
+
         supportFragmentManager.beginTransaction()
                 .replace(R.id.frame, fragment)
                 .commit()

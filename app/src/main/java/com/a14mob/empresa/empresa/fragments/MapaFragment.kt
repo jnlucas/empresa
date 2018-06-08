@@ -97,11 +97,11 @@ class MapaFragment : Fragment() , OnMapReadyCallback, GoogleApiClient.Connection
     }
 
     override fun onConnectionSuspended(p0: Int) {
-        Log.i("suspenso>>>>>","sdsdsdsdsds")
+
     }
 
     override fun onConnectionFailed(p0: ConnectionResult) {
-        Log.i("falhou>>>>>","sdsdsdsdsds")
+
     }
 
 }// Required empty public constructor

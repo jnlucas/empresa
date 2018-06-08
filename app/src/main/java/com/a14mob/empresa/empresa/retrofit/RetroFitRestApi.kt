@@ -21,4 +21,8 @@ interface RetroFitRestAPI {
     fun scoreProfissionalAvaliacao(@Path("profissional") profissional : Int,
                           @Path("meta") meta : Int): Call<List<Avaliacao>>
 
+    @FormUrlEncoded()
+    @POST("/profissional/apiToken")
+    fun sendTokenProfissional(@Field("cpf") cpf : String,@Field("token") token : String): Call<Profissional>
+
 }

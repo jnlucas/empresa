@@ -1,6 +1,8 @@
 package com.a14mob.empresa.empresa.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
@@ -12,14 +14,17 @@ import com.a14mob.empresa.empresa.R
 import com.a14mob.empresa.empresa.entity.Score
 import com.hendraanggrian.pikasso.into
 import com.hendraanggrian.pikasso.picasso
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.score_item.view.*
 
 
 class ScoreAdapter(private val scores: List<Score>, private val context: Context) : Adapter<ScoreAdapter.ViewHolder>() {
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val score = scores[position]
+        holder?.onclick(context, position)
 
         holder?.let {
             it.profissional.text = score.profissional
@@ -63,6 +68,24 @@ class ScoreAdapter(private val scores: List<Score>, private val context: Context
 
 
 
+        fun onclick(context: Context, position: Int) {
+
+
+
+            profissional.setOnClickListener {
+
+                val shareIntent = Intent()
+                shareIntent.action = Intent.ACTION_SEND
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Número "+(position + 1).toString()+" do Ranking")
+                shareIntent.type = "text/plain"
+
+
+                context.startActivity(Intent.createChooser(
+                        shareIntent,
+                        "Meu Ranking"
+                        ))
+
+            }}
 
 
 
@@ -76,7 +99,14 @@ class ScoreAdapter(private val scores: List<Score>, private val context: Context
             pontos.text = score.pontos.toString()
 
 
-            picasso.load(score.foto.toString()).into(imagem)
+            picasso.load(score.foto.toString()).into(imagem, object : Callback {
+                override fun onSuccess() {
+
+                }
+                override fun onError(e: Exception) {
+
+                }
+            })
 
 
         }

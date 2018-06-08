@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "921213212235",
+    "firebase_url": "https://avalie-me-1528327017429.firebaseio.com",
+    "project_id": "avalie-me-1528327017429",
+    "storage_bucket": "avalie-me-1528327017429.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921213212235:android:dceb3c1358cabd11",
+        "android_client_info": {
+          "package_name": "com.a14mob.empresa.empresa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921213212235-euqrqfd92nd11bke4of7ii125qvfbr8e.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "921213212235-euqrqfd92nd11bke4of7ii125qvfbr8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3flAKrbpWX3sPEHmRtq3eHXVMVfwbt1Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 package com.a14mob.empresa.empresa
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,32 +20,15 @@ import com.google.gson.Gson
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import android.content.SharedPreferences
+import com.google.firebase.iid.FirebaseInstanceId
+import com.orhanobut.hawk.Hawk
+import com.orhanobut.hawk.Hawk.put
 import java.util.jar.Manifest
 
 
 class LoginActivity : AppCompatActivity() {
 
     var fieldCpf: String = ""
-
-    var okHttpClient = OkHttpClient.Builder()
-            .addNetworkInterceptor(StethoInterceptor())
-            .build()
-
-
-    var gson = GsonBuilder()
-            .setLenient()
-
-            .create()
-
-    val retrofit = Retrofit.Builder()
-            .baseUrl("http://api.14mob.com")
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-
-            .build()
-
-    val api = retrofit.create<RetroFitRestAPI>(RetroFitRestAPI::class.java!!)
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
 
         var  liberado: Int = verificaProfissional();
 
+        login.text = "Verificando..."
+        login.isClickable = false
+
+
     }
 
     fun carregarInformacoes(response: Profissional){
@@ -84,17 +72,15 @@ class LoginActivity : AppCompatActivity() {
         editor.apply()
 
 
+
         startActivity(intent)
     }
 
     fun verificaProfissional(): Int {
 
+        fieldCpf = cpf.text.toString()
 
-        fieldCpf = "36131357870"//cpf.text.toString()
-
-        Log.i("CPF",fieldCpf)
-
-        api.buscarProfissional(fieldCpf)
+        PermissionUtils.api.buscarProfissional(fieldCpf)
                 .enqueue(object : Callback<Profissional> {
                     override fun onResponse(call: Call<Profissional>?, response: Response<Profissional>?) {
 
@@ -105,12 +91,18 @@ class LoginActivity : AppCompatActivity() {
                         }else{
                             msgErro.text = "Profissional nao encontrado!"
                         }
+                        login.text = "Entrar"
+                        login.isClickable = true
+
 
                     }
 
                     override fun onFailure(call: Call<Profissional>?, t: Throwable?) {
 
                         msgErro.text = "Profissional nao encontrado!"
+                        login.text = "Entrar"
+                        login.isClickable = true
+
                     }
                 })
 

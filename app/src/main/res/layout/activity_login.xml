@@ -21,11 +21,14 @@
 
     <EditText
         android:id="@+id/cpf"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:ems="10"
-        android:hint="Informe se CPF"
+        android:gravity="center"
+        android:hint="Informe o CPF"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,10 +52,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="174dp"
-        android:layout_height="0dp"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/msgErro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
