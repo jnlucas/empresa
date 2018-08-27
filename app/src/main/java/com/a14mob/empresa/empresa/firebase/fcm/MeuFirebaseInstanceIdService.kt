@@ -29,7 +29,7 @@ class MeuFirebaseInstanceIdService: FirebaseInstanceIdService(){
     override fun onTokenRefresh() {
         super.onTokenRefresh()
 
-        //Hawk.put("TOKENFIREBASE",FirebaseInstanceId.getInstance().token)
+
 
 
     }
